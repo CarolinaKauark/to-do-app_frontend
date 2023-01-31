@@ -11,22 +11,28 @@ export default function RegisterModal() {
   const [terms, setTerms] = useState(false);
   const [error, setError] = useState(false);
 
-  const { setOpenedModalType, setIsSomeModalOpen, closeModal } = useContext(ToDoContext);
+  const {
+    setOpenedModalType,
+    setIsSomeModalOpen,
+    closeModal,
+    login,
+  } = useContext(ToDoContext);
 
   const validateFields = () => {
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    if (!emailRegex.test(email) || !terms) setError(true);
-    if (password !== confirmPassword) setError(true);
+    if (!emailRegex.test(email) || !terms) {
+      setError(true);
+    } else if (password !== confirmPassword) {
+      setError(true);
+    } else setError(false);
   };
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     await validateFields();
-    if (!Error) {
+    if (!error) {
       requestLogin('/user/register', { firstName, lastName, email, password })
         .then((data) => {
-          localStorage.setItem('user', JSON.stringify(data));
-          setOpenedModalType('');
-          setIsSomeModalOpen(false);
+          login(data);
         })
         .catch(() => setError(true));
     }
@@ -105,7 +111,7 @@ export default function RegisterModal() {
         </label>
       </form>
 
-      <button type="submit" onClick={ handleLogin }>Create Account</button>
+      <button type="submit" onClick={ handleRegister }>Create Account</button>
 
       {error && <p>*You cannot proceed without these informations</p>}
 

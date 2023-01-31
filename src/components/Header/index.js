@@ -7,11 +7,18 @@ function Header() {
     firstName,
     setIsSomeModalOpen,
     setOpenedModalType,
+    isLogged,
+    logout,
   } = useContext(ToDoContext);
 
   const handleLogin = () => {
     setOpenedModalType('login');
     setIsSomeModalOpen(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    logout();
   };
 
   return (
@@ -22,10 +29,17 @@ function Header() {
           {' '}
           {firstName}
         </h5>
-        <button type="button" onClick={ handleLogin }>
-          <i><CiLogin /></i>
-          <span>Login</span>
-        </button>
+        {isLogged ? (
+          <button type="button" onClick={ handleLogout }>
+            <i><CiLogin /></i>
+            <span>Logout</span>
+          </button>)
+          : (
+            <button type="button" onClick={ handleLogin }>
+              <i><CiLogin /></i>
+              <span>Login</span>
+            </button>
+          )}
       </div>
       <hr />
     </header>

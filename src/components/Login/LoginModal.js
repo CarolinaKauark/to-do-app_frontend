@@ -3,21 +3,22 @@ import { requestLogin } from '../../API/requests';
 import ToDoContext from '../../context/ToDoContext';
 
 export default function LoginModal() {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState(false);
 
-  const { setOpenedModalType, setIsSomeModalOpen, closeModal } = useContext(ToDoContext);
+  const {
+    setOpenedModalType,
+    setIsSomeModalOpen,
+    closeModal,
+    login,
+  } = useContext(ToDoContext);
 
   const handleLogin = async () => {
     requestLogin('/user/login', { email, password })
       .then((data) => {
-        localStorage.setItem('user', JSON.stringify(data));
-        setOpenedModalType('');
-        setIsSomeModalOpen(false);
+        login(data);
       })
       .catch(() => setError(true));
   };

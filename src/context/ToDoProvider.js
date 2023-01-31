@@ -9,6 +9,7 @@ function ToDoProvider({ children }) {
   const [completed, setCompleted] = useState([]);
   const [openedModalType, setOpenedModalType] = useState('');
   const [isSomeModalOpen, setIsSomeModalOpen] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -18,6 +19,19 @@ function ToDoProvider({ children }) {
   const closeModal = () => {
     setOpenedModalType('');
     setIsSomeModalOpen(false);
+  };
+
+  const setGlobalFirstName = (name) => setFirstName(name);
+
+  const logout = () => {
+    setIsLogged(false);
+    setFirstName('Guest');
+  };
+  const login = (data) => {
+    localStorage.setItem('user', JSON.stringify(data));
+    setGlobalFirstName(data.firstName);
+    setIsLogged(true);
+    closeModal();
   };
 
   const value = {
@@ -31,6 +45,10 @@ function ToDoProvider({ children }) {
     isSomeModalOpen,
     setIsSomeModalOpen,
     closeModal,
+    setGlobalFirstName,
+    isLogged,
+    logout,
+    login,
   };
 
   return (
