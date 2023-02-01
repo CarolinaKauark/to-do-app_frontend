@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ToDoContext from './ToDoContext';
+import { requestData } from '../API/requests';
 
 function ToDoProvider({ children }) {
   const [firstName, setFirstName] = useState('Guest');
@@ -10,11 +11,24 @@ function ToDoProvider({ children }) {
   const [openedModalType, setOpenedModalType] = useState('');
   const [isSomeModalOpen, setIsSomeModalOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+  const [taskToEditId, setTaskToEditId] = useState(0);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) setFirstName(user.firstName);
   }, []);
+
+  const getTasks = async () => {
+    requestData('/task')
+      .then((data) => {
+        const tasksInProgress = data.filter((task) => task.inProgress === true);
+        const tasksCompleted = data.filter((task) => task.inProgress === false);
+        console.log(tasksInProgress);
+        console.log(tasksCompleted);
+        setInProgress([...tasksInProgress]);
+        setCompleted([...tasksCompleted]);
+      });
+  };
 
   const closeModal = () => {
     setOpenedModalType('');
@@ -34,11 +48,14 @@ function ToDoProvider({ children }) {
     setGlobalFirstName(data.firstName);
     setIsLogged(true);
     closeModal();
+    getTasks();
   };
 
   const alreadyLogin = () => {
     setIsLogged(true);
   };
+
+  const EditTaskId = (id) => setTaskToEditId(id);
 
   const value = {
     firstName,
@@ -56,6 +73,9 @@ function ToDoProvider({ children }) {
     logout,
     login,
     alreadyLogin,
+    getTasks,
+    EditTaskId,
+    taskToEditId,
   };
 
   return (

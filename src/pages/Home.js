@@ -15,14 +15,21 @@ export default function Home() {
     isSomeModalOpen,
     logout,
     alreadyLogin,
+    completed,
+    getTasks,
   } = useContext(ToDoContext);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     requestPost('/user/validate', user)
-      .then(() => alreadyLogin())
+      .then(() => {
+        alreadyLogin();
+        getTasks();
+      })
       .catch(() => logout());
   }, []);
+
+  useEffect(() => {}, [inProgress, completed]);
 
   return (
     <main>
@@ -53,7 +60,7 @@ export default function Home() {
             <h3>Completed</h3>
             <ClearAll />
           </div>
-          { inProgress.map((task) => <Task key={ task.id } task={ task } />)}
+          { completed.map((task) => <Task key={ task.id } task={ task } />)}
         </div>
       </section>
     </main>

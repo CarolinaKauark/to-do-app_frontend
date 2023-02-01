@@ -1,65 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { requestPost } from '../../API/requests';
+import FormTask from '../../components/Tasks/FormTask';
+import ToDoContext from '../../context/ToDoContext';
 
 export default function AddTaskModal() {
-  const [description, setDescription] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [date, setDate] = useState('');
-  const [isHighPriority, setHighPriority] = useState(false);
+  const { getTasks, closeModal } = useContext(ToDoContext);
+
+  const insertTask = async (newTask) => {
+    requestPost('/task', newTask)
+      .then(() => {
+        getTasks();
+        closeModal();
+      });
+  };
 
   return (
-    <form>
-      <label htmlFor="description">
-        Task Name
-        <input
-          type="text"
-          placeholder="Enter Your Task Name"
-          value={ description }
-          onChange={ ({ target: { value } }) => setDescription(value) }
-        />
-      </label>
-
+    <section>
       <div>
-        <label htmlFor="startTime">
-          Start Time
-          <input
-            id="startTime"
-            type="time"
-            value={ startTime }
-            onChange={ ({ target: { value } }) => setStartTime(value) }
-          />
-        </label>
-        <label htmlFor="endTime">
-          End Time
-          <input
-            id="endTime"
-            type="time"
-            value={ endTime }
-            onChange={ ({ target: { value } }) => setEndTime(value) }
-          />
-        </label>
+        <button type="button" onClick={ closeModal }>X</button>
       </div>
 
-      <label htmlFor="highPriority">
-        <input
-          type="checkbox"
-          checked={ isHighPriority }
-          onChange={ () => setHighPriority(!isHighPriority) }
-        />
-        Hidh Priority?
-      </label>
+      <FormTask
+        title="Task Name"
+        button="Create Task"
+        funcButton={ (newTask) => insertTask(newTask) }
+      />
+    </section>
 
-      <div>
-        <label htmlFor="date">
-          Date
-          <input
-            id="date"
-            type="date"
-            value={ date }
-            onChange={ ({ target: { value } }) => setDate(value) }
-          />
-        </label>
-      </div>
-    </form>
   );
 }

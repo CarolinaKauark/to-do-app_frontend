@@ -5,12 +5,13 @@ import RegisterModal from './Register/RegisterModal';
 // import useClickOutside from '../hooks/useClickOutside';
 import Modal from './Modal';
 import AddTaskModal from './Task/AddTaskModal';
+import EditTaskModal from './Task/EditTaskModal';
 
 const modals = {
   login: (<Modal><LoginModal /></Modal>),
   register: (<Modal><RegisterModal /></Modal>),
   addTask: (<Modal><AddTaskModal /></Modal>),
-  // editTask: () => (<Modal isRendered={ isSomeModalOpen }><EditTaskComponent /></Modal>),
+  editTask: (<Modal><EditTaskModal /></Modal>),
 };
 
 export default modals;
