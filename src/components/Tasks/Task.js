@@ -1,17 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ToDoContext from '../../context/ToDoContext';
+import { requestUpdate } from '../../API/requests';
 
 function Task({ task }) {
   const [day, setDay] = useState('');
 
-  const { description, startTime, endTime, date, isHighPriority, id } = task;
-  const { EditTaskId, setOpenedModalType, setIsSomeModalOpen } = useContext(ToDoContext);
+  const { description, startTime, endTime, date, inProgress, isHighPriority, id } = task;
+  const {
+    EditTaskId,
+    setOpenedModalType,
+    setIsSomeModalOpen,
+    getTasks,
+  } = useContext(ToDoContext);
 
   const OpenEditTaskModal = () => {
     EditTaskId(id);
     setOpenedModalType('editTask');
     setIsSomeModalOpen(true);
+  };
+
+  const changingTaskStatus = async () => {
+    requestUpdate(`/task/${id}`, {
+      description,
+      startTime,
+      endTime,
+      date,
+      inProgress: !inProgress,
+      isHighPriority })
+      .then(() => getTasks());
   };
 
   useEffect(() => {
@@ -22,7 +39,11 @@ function Task({ task }) {
 
   return (
     <div>
-      {/* <input type="checkbox" checked={ !inProgress } /> */}
+      <input
+        type="checkbox"
+        checked={ !inProgress }
+        onChange={ () => changingTaskStatus() }
+      />
       <h4>{ description }</h4>
       <div>
         <p>{day}</p>

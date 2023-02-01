@@ -16,11 +16,6 @@ export default function EditTaskModal() {
       });
   };
 
-  // useEffect(() => {
-  //   const [task] = inProgress.filter(({ id }) => id === taskToEditId);
-  //   setTaskToEdit(task);
-  // }, []);
-
   const [task] = inProgress.filter(({ id }) => id === taskToEditId);
   return (
     <section>
