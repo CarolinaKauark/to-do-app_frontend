@@ -6,12 +6,15 @@ import RegisterModal from './Register/RegisterModal';
 import Modal from './Modal';
 import AddTaskModal from './Task/AddTaskModal';
 import EditTaskModal from './Task/EditTaskModal';
+import SyncModal from './SyncModal/SyncModal';
 
 const modals = {
   login: (<Modal><LoginModal /></Modal>),
   register: (<Modal><RegisterModal /></Modal>),
   addTask: (<Modal><AddTaskModal /></Modal>),
   editTask: (<Modal><EditTaskModal /></Modal>),
+  syncModal: (<Modal><SyncModal /></Modal>),
+
 };
 
 export default modals;
