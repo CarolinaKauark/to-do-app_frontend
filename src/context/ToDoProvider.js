@@ -23,8 +23,6 @@ function ToDoProvider({ children }) {
       .then((data) => {
         const tasksInProgress = data.filter((task) => task.inProgress === true);
         const tasksCompleted = data.filter((task) => task.inProgress === false);
-        console.log(tasksInProgress);
-        console.log(tasksCompleted);
         setInProgress([...tasksInProgress]);
         setCompleted([...tasksCompleted]);
       });
@@ -41,6 +39,8 @@ function ToDoProvider({ children }) {
     localStorage.clear();
     setIsLogged(false);
     setFirstName('Guest');
+    setInProgress([]);
+    setCompleted([]);
   };
 
   const login = (data) => {

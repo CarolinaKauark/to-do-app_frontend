@@ -32,9 +32,8 @@ function Task({ task }) {
   };
 
   useEffect(() => {
-    const moment = new Date(date).toDateString();
-    console.log(moment);
-    setDay(moment);
+    const moment = new Date(date).toDateString().split(' ');
+    setDay(`${moment[0]}, ${moment[1]} ${moment[2]}`);
   }, []);
 
   return (
@@ -71,7 +70,7 @@ Task.propTypes = {
     description: PropTypes.string,
     startTime: PropTypes.string,
     endTime: PropTypes.string,
-    isHighPriority: PropTypes.string,
+    isHighPriority: PropTypes.bool,
     inProgress: PropTypes.bool,
     date: PropTypes.string,
     id: PropTypes.number,

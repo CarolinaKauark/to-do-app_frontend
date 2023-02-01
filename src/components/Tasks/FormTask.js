@@ -9,7 +9,6 @@ function FormTask({ title, button, funcButton, task }) {
   const [isHighPriority, setHighPriority] = useState(false);
 
   useEffect(() => {
-    console.log(task);
     if (task) {
       setDescription(task.description);
       setStartTime(task.startTime);
