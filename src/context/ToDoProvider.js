@@ -24,9 +24,11 @@ function ToDoProvider({ children }) {
   const setGlobalFirstName = (name) => setFirstName(name);
 
   const logout = () => {
+    localStorage.clear();
     setIsLogged(false);
     setFirstName('Guest');
   };
+
   const login = (data) => {
     localStorage.setItem('user', JSON.stringify(data));
     setGlobalFirstName(data.firstName);

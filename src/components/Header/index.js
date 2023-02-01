@@ -17,7 +17,6 @@ function Header() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
     logout();
   };
 

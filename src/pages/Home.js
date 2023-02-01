@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { requestPost } from '../API/requests';
 import ClearAll from '../components/Buttons/ClearAll';
 import NewTask from '../components/Buttons/NewTask';
 import SyncGoogle from '../components/Buttons/SyncGoogle';
@@ -12,7 +13,14 @@ export default function Home() {
     inProgress,
     openedModalType,
     isSomeModalOpen,
+    logout,
   } = useContext(ToDoContext);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    requestPost('/user/validate', user)
+      .catch(() => logout());
+  }, []);
 
   return (
     <main>
