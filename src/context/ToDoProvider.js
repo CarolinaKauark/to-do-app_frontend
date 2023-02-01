@@ -36,6 +36,10 @@ function ToDoProvider({ children }) {
     closeModal();
   };
 
+  const alreadyLogin = () => {
+    setIsLogged(true);
+  };
+
   const value = {
     firstName,
     inProgress,
@@ -51,6 +55,7 @@ function ToDoProvider({ children }) {
     isLogged,
     logout,
     login,
+    alreadyLogin,
   };
 
   return (

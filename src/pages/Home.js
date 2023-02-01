@@ -14,11 +14,13 @@ export default function Home() {
     openedModalType,
     isSomeModalOpen,
     logout,
+    alreadyLogin,
   } = useContext(ToDoContext);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     requestPost('/user/validate', user)
+      .then(() => alreadyLogin())
       .catch(() => logout());
   }, []);
 
