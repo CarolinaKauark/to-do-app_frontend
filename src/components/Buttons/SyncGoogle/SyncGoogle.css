@@ -1,0 +1,28 @@
+.syncGoogle_button {
+    padding: 1rem 3rem;
+    gap: 10px;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+
+    height: 30px;
+    border: none;
+
+    background: #DBDBDB;
+    border-radius: 6px;
+}
+
+.google_image {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border: 0;
+}

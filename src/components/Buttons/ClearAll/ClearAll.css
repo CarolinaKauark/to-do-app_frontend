@@ -1,0 +1,25 @@
+.clearAll_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background-color: white;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-left: 0.8rem;
+}
+
+.clearAll_button:hover {
+    color: #CA7272;
+}
+
+.trash_icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 0.2rem;
+}

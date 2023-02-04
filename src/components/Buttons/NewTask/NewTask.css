@@ -1,0 +1,18 @@
+.newTask_button {
+    padding: 7px 28px;
+    gap: 10px;
+    border: none;
+
+    margin-right: 1.5rem;
+
+    width: 109px;
+    height: 29px;
+    left: 57px;
+    /* top: 392px; */
+    color: white;
+
+    /* Gradient */
+
+    background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
+    border-radius: 6px;
+}

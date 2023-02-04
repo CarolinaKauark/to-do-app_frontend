@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CiLogin } from 'react-icons/ci';
 import ToDoContext from '../../context/ToDoContext';
+import './Header.css';
 
 function Header() {
   const {
@@ -22,25 +23,38 @@ function Header() {
 
   return (
     <header>
-      <div>
-        <h5>
+      <section className="header_info">
+        <h5 className="header_title">
           Welcome,
           {' '}
           {firstName}
         </h5>
         {isLogged ? (
-          <button type="button" onClick={ handleLogout }>
-            <i><CiLogin /></i>
-            <span>Logout</span>
-          </button>)
-          : (
-            <button type="button" onClick={ handleLogin }>
+          <div className="header_button">
+            <button
+              className="button_log"
+              type="button"
+              onClick={ handleLogout }
+            >
               <i><CiLogin /></i>
-              <span>Login</span>
+              <span>Logout</span>
             </button>
+          </div>
+        )
+          : (
+            <div className="header_button">
+              <button
+                className="button_log"
+                type="button"
+                onClick={ handleLogin }
+              >
+                <i><CiLogin /></i>
+                <span>Login</span>
+              </button>
+            </div>
           )}
-      </div>
-      <hr />
+      </section>
+      <hr className="header_line" />
     </header>
   );
 }

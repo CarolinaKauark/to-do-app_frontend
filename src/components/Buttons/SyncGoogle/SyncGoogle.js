@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-import ToDoContext from '../../context/ToDoContext';
-// import googleCalendar from '../../images/googleCalendar.png';
+import { getCalendar, login } from '../../../API/googleAPI';
+import ToDoContext from '../../../context/ToDoContext';
+import './SyncGoogle.css';
+import googleCalendar from '../../../images/googleCalendar.png';
 
 export default function SyncGoogle() {
   const { setIsSomeModalOpen, setOpenedModalType } = useContext(ToDoContext);
@@ -10,20 +12,26 @@ export default function SyncGoogle() {
     setIsSomeModalOpen(true);
   };
 
-  const syncWithGoogle = () => {
+  const syncWithGoogle = async () => {
+    await login();
+    await getCalendar();
     openSyncModal();
   };
 
   return (
     <button
+      className="syncGoogle_button"
       type="button"
       onClick={ () => syncWithGoogle() }
     >
-      {/* <img
+      <img
+        className="google_image"
         alt="Google Calendar Icon"
         src={ googleCalendar }
-      /> */}
-      Sync to Google Calendar
+      />
+      <p>
+        Sync to Google Calendar
+      </p>
     </button>
   );
 }

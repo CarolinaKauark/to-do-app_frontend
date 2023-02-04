@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { requestLogin } from '../../API/requests';
 import ToDoContext from '../../context/ToDoContext';
+import './LoginModal.css';
 
 export default function LoginModal() {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ export default function LoginModal() {
   };
 
   return (
-    <section>
+    <section className="login_modal">
       <button type="button" onClick={ closeModal }>X</button>
       <h2>Login to Use the App</h2>
       <form>

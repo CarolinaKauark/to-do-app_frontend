@@ -2,6 +2,7 @@ import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useClickOutside from '../hooks/useClickOutside';
 import ToDoContext from '../context/ToDoContext';
+import './Modal.css';
 
 export default function Modal({ children }) {
   const modalContainerRef = useRef();
@@ -13,7 +14,7 @@ export default function Modal({ children }) {
   });
 
   return (
-    <div ref={ modalContainerRef }>
+    <div ref={ modalContainerRef } className="modal">
       {children}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import ToDoContext from '../../context/ToDoContext';
+import ToDoContext from '../../../context/ToDoContext';
+import './NewTask.css';
 
 export default function NewTask() {
   const { setIsSomeModalOpen, setOpenedModalType, isLogged } = useContext(ToDoContext);
@@ -18,6 +19,7 @@ export default function NewTask() {
     <button
       type="button"
       onClick={ handleOpenModalTask }
+      className="newTask_button"
     >
       NewTask
     </button>

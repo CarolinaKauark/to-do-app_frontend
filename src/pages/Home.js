@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useContext, useEffect } from 'react';
 import { requestPost } from '../API/requests';
-import ClearAll from '../components/Buttons/ClearAll';
-import NewTask from '../components/Buttons/NewTask';
-import SyncGoogle from '../components/Buttons/SyncGoogle';
+import ClearAll from '../components/Buttons/ClearAll/ClearAll';
+import NewTask from '../components/Buttons/NewTask/NewTask';
+import SyncGoogle from '../components/Buttons/SyncGoogle/SyncGoogle';
 import Header from '../components/Header';
 import Task from '../components/Tasks/Task';
 import ToDoContext from '../context/ToDoContext';
 import modals from '../modals';
+import './Home.css';
 
 export default function Home() {
   const {
@@ -32,37 +34,40 @@ export default function Home() {
   useEffect(() => {}, [inProgress, completed]);
 
   return (
-    <main>
+    <body className="toDoApp">
       {isSomeModalOpen && modals[openedModalType]}
       <Header />
-      <h1>
-        What are your plans for
-        {' '}
-        <strong>TODAY?</strong>
-      </h1>
-      <h2>
-        Make your to do list and sync it with your Google calendar to track it daily.
-      </h2>
 
-      <section>
-        <NewTask />
-        <SyncGoogle />
-      </section>
+      <main className="main_ToDo">
+        <h1 className="main_title">
+          What are your plans for
+          {' '}
+          <strong className="main_title_linear">TODAY?</strong>
+        </h1>
+        <h2 className="main_subTitle">
+          Make your to do list and sync it with your Google calendar to track it daily.
+        </h2>
 
-      <section>
-        <div>
-          <h3>In Progress</h3>
-          { inProgress.map((task) => <Task key={ task.id } task={ task } />)}
-        </div>
-        <hr />
-        <div>
+        <section className="main_buttons">
+          <NewTask />
+          <SyncGoogle />
+        </section>
+
+        <section className="main_tasks">
           <div>
-            <h3>Completed</h3>
-            <ClearAll />
+            <h3 className="main_task_title">In Progress</h3>
+            { inProgress.map((task) => <Task key={ task.id } task={ task } />)}
           </div>
-          { completed.map((task) => <Task key={ task.id } task={ task } />)}
-        </div>
-      </section>
-    </main>
+          <hr className="main_line" />
+          <div>
+            <div className="main_completed_div">
+              <h3 className="main_task_title">Completed</h3>
+              <ClearAll />
+            </div>
+            { completed.map((task) => <Task key={ task.id } task={ task } />)}
+          </div>
+        </section>
+      </main>
+    </body>
   );
 }
