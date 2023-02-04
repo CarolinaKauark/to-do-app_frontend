@@ -34,13 +34,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
-
 }
 
 .button_log:hover {
     color: #CA7272;
+    cursor: pointer;
 }
 
 .header_line {

@@ -14,9 +14,11 @@ export default function Modal({ children }) {
   });
 
   return (
-    <div ref={ modalContainerRef } className="modal">
-      {children}
-    </div>
+    <section className="modal">
+      <div ref={ modalContainerRef }>
+        {children}
+      </div>
+    </section>
   );
 }
 

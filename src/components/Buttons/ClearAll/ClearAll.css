@@ -15,6 +15,7 @@
 
 .clearAll_button:hover {
     color: #CA7272;
+    cursor: pointer;
 }
 
 .trash_icon {

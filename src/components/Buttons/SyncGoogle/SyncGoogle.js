@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { getCalendar, login } from '../../../API/googleAPI';
+// import { getCalendar, login } from '../../../API/googleAPI';
 import ToDoContext from '../../../context/ToDoContext';
 import './SyncGoogle.css';
 import googleCalendar from '../../../images/googleCalendar.png';
@@ -13,8 +13,8 @@ export default function SyncGoogle() {
   };
 
   const syncWithGoogle = async () => {
-    await login();
-    await getCalendar();
+    // await login();
+    // await getCalendar();
     openSyncModal();
   };
 

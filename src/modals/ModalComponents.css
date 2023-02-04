@@ -1,0 +1,149 @@
+.login_component {
+    background-color: white;
+    width: 530px;
+    height: 468px;
+    left: 282px;
+    top: 216px;
+    opacity: 1;
+
+    border: 1.95572px solid #E5E5E5;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register_component {
+    background-color: white;
+    width: 530px;
+    height: 614px;
+    left: 283px;
+    top: 148px;
+
+    border: 1.95572px solid #E5E5E5;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close_btn {
+    align-self: flex-end;
+    margin: 0.5rem 0.9rem 0;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.close_btn:hover {
+    cursor: pointer;
+}
+
+
+.modal_title {
+    align-self: center;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 33px;
+    text-align: center;
+}
+
+.modal_form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.modal_inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+}
+
+.input {
+    background-color: transparent;
+    border: 1.95572px solid #E5E5E5;
+    border-radius: 6px;
+    width: 100%;
+    margin:  0.7rem auto;
+    height: 40px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.inputs_inline {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    /* width: 100%; */
+    /* margin: auto; */
+}
+
+.btn_modal {
+    align-self: center;
+    padding: 7px 65px;
+    border: none;
+    color: white;
+    width: 80%;
+    margin: 0.8rem auto;
+    height: 29px;
+
+    background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
+    border-radius: 6px;
+}
+
+.btn_remember {
+    border-radius: 2px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* .checkmark input:checked {
+    background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
+} */
+
+.btn_modal:hover {
+    opacity: 0.8;
+    box-shadow: 0px 163.333px 130.667px rgba(0, 0, 0, 0.07), 0px 68.2368px 54.5894px rgba(0, 0, 0, 0.0503198), 0px 36.4826px 29.1861px rgba(0, 0, 0, 0.0417275), 0px 20.4519px 16.3615px rgba(0, 0, 0, 0.035), 0px 10.8618px 8.68947px rgba(0, 0, 0, 0.0282725), 0px 4.51985px 3.61588px rgba(0, 0, 0, 0.0196802);
+
+    cursor: pointer;
+}
+
+.span_modal {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 15px;
+}
+
+.sign_btn {
+    color: #1289DB;
+    margin: auto 0.5rem;
+}
+
+.sign_btn:hover {
+    cursor: pointer;
+}
+
+.error_msg {
+    width: 80%;
+    margin: auto;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #EC7F72;
+    }

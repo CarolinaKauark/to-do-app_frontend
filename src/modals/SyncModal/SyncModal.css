@@ -1,0 +1,73 @@
+.sync_modal {
+    width: 530px;
+    height: 320px;
+    left: 283px;
+    top: 290px;
+
+    background: #FFFFFF;
+    border: 1.95572px solid #E5E5E5;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.close_btn {
+    align-self: flex-end;
+    margin: 0.5rem 0.9rem 0;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.sync_info {
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sync_title {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 31px;
+    text-align: center;
+}
+
+.sync_msg {
+    width: 80%;
+    margin:  0 auto;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.ok_btn {
+    align-self: center;
+    padding: 7px 28px;
+
+    margin: 2rem auto;
+
+    border: none;
+    color: white;
+
+    background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
+    border-radius: 6px;
+}
+
+.ok_btn:hover {
+    opacity: 0.8;
+    
+    box-shadow: 0px 163.333px 130.667px rgba(0, 0, 0, 0.07), 0px 68.2368px 54.5894px rgba(0, 0, 0, 0.0503198), 0px 36.4826px 29.1861px rgba(0, 0, 0, 0.0417275), 0px 20.4519px 16.3615px rgba(0, 0, 0, 0.035), 0px 10.8618px 8.68947px rgba(0, 0, 0, 0.0282725), 0px 4.51985px 3.61588px rgba(0, 0, 0, 0.0196802);
+
+    cursor: pointer;
+}

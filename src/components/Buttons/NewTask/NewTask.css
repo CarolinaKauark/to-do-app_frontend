@@ -16,3 +16,9 @@
     background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
     border-radius: 6px;
 }
+
+.newTask_button:hover {
+    opacity: 0.8;
+    box-shadow: 0px 163.333px 130.667px rgba(0, 0, 0, 0.07), 0px 68.2368px 54.5894px rgba(0, 0, 0, 0.0503198), 0px 36.4826px 29.1861px rgba(0, 0, 0, 0.0417275), 0px 20.4519px 16.3615px rgba(0, 0, 0, 0.035), 0px 10.8618px 8.68947px rgba(0, 0, 0, 0.0282725), 0px 4.51985px 3.61588px rgba(0, 0, 0, 0.0196802);
+    cursor: pointer;
+}
