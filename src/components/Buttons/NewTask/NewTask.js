@@ -3,16 +3,20 @@ import ToDoContext from '../../../context/ToDoContext';
 import './NewTask.css';
 
 export default function NewTask() {
-  const { setIsSomeModalOpen, setOpenedModalType, isLogged } = useContext(ToDoContext);
+  const {
+    setIsSomeModalOpen,
+    setOpenedModalType,
+    // isLogged,
+  } = useContext(ToDoContext);
 
   const handleOpenModalTask = () => {
-    if (!isLogged) {
-      setOpenedModalType('login');
-      setIsSomeModalOpen(true);
-    } else {
-      setOpenedModalType('addTask');
-      setIsSomeModalOpen(true);
-    }
+    // if (!isLogged) {
+    //   setOpenedModalType('login');
+    //   setIsSomeModalOpen(true);
+    // } else {
+    setOpenedModalType('addTask');
+    setIsSomeModalOpen(true);
+    // }
   };
 
   return (

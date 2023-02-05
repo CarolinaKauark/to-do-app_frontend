@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import './FormTask.css';
 
 function FormTask({ title, button, funcButton, task }) {
   const [description, setDescription] = useState('');
@@ -19,12 +20,13 @@ function FormTask({ title, button, funcButton, task }) {
   }, []);
 
   return (
-    <article>
-      <h1>{title}</h1>
-      <form>
-        <label htmlFor="description">
+    <>
+      <h1 className="modal_title">{title}</h1>
+      <form className="modal_form">
+        <label className="modal_inputs" htmlFor="description">
           Task Name
           <input
+            className="input"
             type="text"
             placeholder="Enter Your Task Name"
             value={ description }
@@ -32,19 +34,27 @@ function FormTask({ title, button, funcButton, task }) {
           />
         </label>
 
-        <div>
-          <label htmlFor="startTime">
+        <div className="inputs_inline">
+          <label
+            className="modal_inputs"
+            htmlFor="startTime"
+          >
             Start Time
             <input
+              className="input"
               id="startTime"
               type="time"
               value={ startTime }
               onChange={ ({ target: { value } }) => setStartTime(value) }
             />
           </label>
-          <label htmlFor="endTime">
+          <label
+            className="modal_inputs"
+            htmlFor="endTime"
+          >
             End Time
             <input
+              className="input"
               id="endTime"
               type="time"
               value={ endTime }
@@ -55,6 +65,7 @@ function FormTask({ title, button, funcButton, task }) {
 
         <label htmlFor="highPriority">
           <input
+            className="btn_remember"
             type="checkbox"
             checked={ isHighPriority }
             onChange={ () => setHighPriority(!isHighPriority) }
@@ -76,6 +87,7 @@ function FormTask({ title, button, funcButton, task }) {
       </form>
       {task ? (
         <button
+          className="formTask_btn"
           type="submit"
           onClick={ () => funcButton({
             description,
@@ -91,6 +103,7 @@ function FormTask({ title, button, funcButton, task }) {
       )
         : (
           <button
+            className="formTask_btn"
             type="submit"
             onClick={ () => funcButton({
               description,
@@ -103,8 +116,7 @@ function FormTask({ title, button, funcButton, task }) {
           >
             {button}
           </button>)}
-
-    </article>
+    </>
   );
 }
 

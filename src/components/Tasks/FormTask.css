@@ -1,0 +1,12 @@
+.formTask_btn {
+    align-self: center;
+    padding: 7px 65px;
+    border: none;
+    color: white;
+    width: 40%;
+    margin: 0.8rem auto;
+    height: 29px;
+
+    background: linear-gradient(97.54deg, #F857A6 1.17%, #FF5858 99.42%);
+    border-radius: 6px;
+}

@@ -1,0 +1,12 @@
+.task_modal {
+    background-color: white;
+    width: 530px;
+    height: 702px;
+    left: 310px;
+    top: 99px;
+
+    border: 1.95572px solid #E5E5E5;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
