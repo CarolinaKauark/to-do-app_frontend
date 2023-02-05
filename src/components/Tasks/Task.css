@@ -1,0 +1,71 @@
+.task_component {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 1.5rem;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.task_description {
+    width: 18rem;
+    height: 0.5rem;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.subTitle_task {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.high_priority {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #EC7F72;
+}
+
+.edit_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 13px;
+
+    color: #A0A0A0;
+}
+
+.edit_btn:hover {
+    cursor: pointer;
+    color: #CA7272;
+}
+
+.edit_txt {
+    margin: 0  0.5rem;
+}

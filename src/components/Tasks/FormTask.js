@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './FormTask.css';
+import { StaticDatePicker } from '@mui/x-date-pickers';
+import { TextField } from '@mui/material';
 
 function FormTask({ title, button, funcButton, task }) {
   const [description, setDescription] = useState('');
@@ -73,7 +75,7 @@ function FormTask({ title, button, funcButton, task }) {
           Hidh Priority?
         </label>
 
-        <div>
+        {/* <div>
           <label htmlFor="date">
             Date
             <input
@@ -83,7 +85,21 @@ function FormTask({ title, button, funcButton, task }) {
               onChange={ ({ target: { value } }) => setDate(value) }
             />
           </label>
-        </div>
+        </div> */}
+
+        {/* <LocalizationProvider dateAdapter={ AdapterDayjs }> */}
+        <StaticDatePicker
+          className="date_picker"
+          orientation="landscape"
+          openTo="day"
+          value={ date }
+          // shouldDisableDate={ isWeekend }
+          onChange={ (newValue) => {
+            setDate(newValue);
+          } }
+          renderInput={ (params) => <TextField { ...params } /> }
+        />
+        {/* </LocalizationProvider> */}
       </form>
       {task ? (
         <button

@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { CgEditFlipH } from 'react-icons/cg';
 import ToDoContext from '../../context/ToDoContext';
 import { requestUpdate } from '../../API/requests';
+import './Task.css';
 
 function Task({ task }) {
-  const [day, setDay] = useState('');
-
   const { description, startTime, endTime, date, inProgress, isHighPriority, id } = task;
   const {
     EditTaskId,
@@ -30,38 +30,46 @@ function Task({ task }) {
       isHighPriority })
       .then(() => getTasks());
   };
-
-  useEffect(() => {
-    const moment = new Date(date).toDateString().split(' ');
-    setDay(`${moment[0]}, ${moment[1]} ${moment[2]}`);
-  }, []);
+  const moment = new Date(date).toDateString().split(' ');
 
   return (
-    <div>
+    <article className="task_component">
       <input
         type="checkbox"
         checked={ !inProgress }
         onChange={ () => changingTaskStatus() }
       />
-      <h4>{ description }</h4>
-      <div>
-        <p>{day}</p>
-        {isHighPriority && <span>High Priority</span>}
-        <p>
-          {startTime}
-          {' '}
-          -
-          {' '}
-          {endTime}
-        </p>
+
+      <div className="column">
+        <h4 className="task_description">{ description }</h4>
+        <div className="inline">
+          <p className="subTitle_task">{`${moment[0]}, ${moment[1]} ${moment[2]}`}</p>
+          {isHighPriority && <span className="high_priority">High Priority</span>}
+          <p className="subTitle_task">
+            {startTime}
+            {Number(startTime.split(':')[0]) < +('12') ? 'AM' : 'PM'}
+            {' '}
+            -
+            {' '}
+            {endTime}
+            {Number(endTime.split(':')[0]) < +('12') ? 'AM' : 'PM'}
+
+          </p>
+        </div>
       </div>
-      <button
-        type="submit"
+
+      <div
+        className="edit_btn"
+        role="button"
         onClick={ () => OpenEditTaskModal() }
+        onKeyPress={ OpenEditTaskModal }
+        tabIndex={ 0 }
       >
-        Edit
-      </button>
-    </div>
+        <CgEditFlipH />
+        <p className="edit_txt">Edit</p>
+      </div>
+
+    </article>
   );
 }
 

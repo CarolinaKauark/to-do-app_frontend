@@ -30,7 +30,7 @@ export default function AddTaskModal() {
       </div>
 
       <FormTask
-        title="Task Name"
+        title="Create Task"
         button="Create Task"
         funcButton={ (newTask) => insertTask(newTask) }
       />

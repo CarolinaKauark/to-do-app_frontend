@@ -19,6 +19,7 @@ export default function Home() {
     alreadyLogin,
     completed,
     getTasks,
+    editHandler,
   } = useContext(ToDoContext);
 
   useEffect(() => {
@@ -31,10 +32,11 @@ export default function Home() {
       .catch(() => logout());
   }, []);
 
-  useEffect(() => {}, [inProgress, completed]);
+  useEffect(() => {}, [inProgress, completed, editHandler]);
 
   return (
     <body className="toDoApp">
+      {console.log(inProgress)}
       {isSomeModalOpen && modals[openedModalType]}
       <Header />
 
@@ -54,7 +56,7 @@ export default function Home() {
         </section>
 
         <section className="main_tasks">
-          <div>
+          <div className="main_task_div">
             <h3 className="main_task_title">In Progress</h3>
             { inProgress.map((task) => <Task key={ task.id } task={ task } />)}
           </div>

@@ -1,10 +1,11 @@
 .login_component {
     background-color: white;
     width: 530px;
-    height: 468px;
+    height: 70vh;
     left: 282px;
     top: 216px;
     opacity: 1;
+    overflow-y: scroll;
 
     border: 1.95572px solid #E5E5E5;
     border-radius: 16px;
@@ -12,17 +13,26 @@
     flex-direction: column;
 }
 
+.login_component::-webkit-scrollbar {
+    display: none;
+}
+
 .register_component {
     background-color: white;
     width: 530px;
-    height: 614px;
+    height: 90vh;
     left: 283px;
     top: 148px;
+    overflow-y: scroll;
 
     border: 1.95572px solid #E5E5E5;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
+}
+
+.register_component::-webkit-scrollbar {
+    display: none;
 }
 
 .close_btn {
@@ -146,4 +156,16 @@ input:-webkit-autofill {
     line-height: 15px;
 
     color: #EC7F72;
+}
+
+@media (min-height: 850px) {
+
+    .login_component {
+        height: 50vh;
+
     }
+
+    .register_component {
+        height: 70vh;
+    }
+}

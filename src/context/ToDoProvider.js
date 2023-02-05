@@ -12,6 +12,7 @@ function ToDoProvider({ children }) {
   const [isSomeModalOpen, setIsSomeModalOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [taskToEditId, setTaskToEditId] = useState(0);
+  const [hasBeenEdit, setHasBeenEdit] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -57,6 +58,8 @@ function ToDoProvider({ children }) {
 
   const EditTaskId = (id) => setTaskToEditId(id);
 
+  const editHandler = () => setHasBeenEdit(!hasBeenEdit);
+
   const value = {
     firstName,
     inProgress,
@@ -76,6 +79,7 @@ function ToDoProvider({ children }) {
     getTasks,
     EditTaskId,
     taskToEditId,
+    editHandler,
   };
 
   return (

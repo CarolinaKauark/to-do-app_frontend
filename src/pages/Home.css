@@ -1,8 +1,3 @@
-/* .toDoApp {
-    width: 90%;
-    margin: 5% auto;
-} */
-
 .main_ToDo {
     width: 90%;
     margin: auto;
@@ -21,8 +16,6 @@
 
 .main_title_linear {
     height: 101px;
-    /* left: 389px;
-    top: 175px; */
 
     font-family: 'Work Sans';
     font-style: normal;
@@ -78,4 +71,30 @@
 .main_completed_div {
     display: flex;
     align-items: center;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+@media (max-width: 650px) {
+
+    .main_title {
+        width: 80%;
+        font-size: 3rem;
+    }
+
+    .main_title_linear {
+        font-size: 3rem;
+    }
+
+    .main_subTitle{
+        width: 60%;
+    }
 }
