@@ -5,17 +5,26 @@ import './SyncGoogle.css';
 import googleCalendar from '../../../images/googleCalendar.png';
 
 export default function SyncGoogle() {
-  const { setIsSomeModalOpen, setOpenedModalType } = useContext(ToDoContext);
+  const { setIsSomeModalOpen, setOpenedModalType, isLogged } = useContext(ToDoContext);
 
   const openSyncModal = () => {
     setOpenedModalType('syncModal');
     setIsSomeModalOpen(true);
   };
 
-  const syncWithGoogle = async () => {
-    // await login();
-    // await getCalendar();
+  const requestGoogleAPI = async () => {
+    // login();
+    // getCalendar();
     openSyncModal();
+  };
+
+  const syncWithGoogle = async () => {
+    if (!isLogged) {
+      setOpenedModalType('login');
+      setIsSomeModalOpen(true);
+    } else {
+      requestGoogleAPI();
+    }
   };
 
   return (
