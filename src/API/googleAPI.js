@@ -3,8 +3,8 @@ import { getAuth } from 'firebase/auth';
 // import { gapi } from 'gapi-script';
 
 const firebaseApp = initializeApp({
-  apiKey: 'AIzaSyD8lCg80_sjEUu8nOo7GdqSVbHGZZnuuS8',
-  // apiKey: 'AIzaSyAxN0Le7dOEzOMtiPLDnlqoJc8q4NQg7Us',
+  // apiKey: 'AIzaSyD8lCg80_sjEUu8nOo7GdqSVbHGZZnuuS8',
+  apiKey: 'AIzaSyAxN0Le7dOEzOMtiPLDnlqoJc8q4NQg7Us',
   authDomain: 'to-do-app-remotish.firebaseapp.com',
   projectId: 'to-do-app-remotish',
   storageBucket: 'to-do-app-remotish.appspot.com',
@@ -14,10 +14,12 @@ const firebaseApp = initializeApp({
 
 const auth = getAuth(firebaseApp);
 
-const initClient = async () => {
-  await gapi.load('client', () => {
+const initClient = () => {
+  gapi.load('client', () => {
     gapi.client.init({
-      apiKey: 'AIzaSyD8lCg80_sjEUu8nOo7GdqSVbHGZZnuuS8',
+      apiKey: 'AIzaSyAlrC9__s-e56clD0GV-w8XVLGxG0OvmpU',
+      // apiKey: 'AIzaSyD8lCg80_sjEUu8nOo7GdqSVbHGZZnuuS8',
+
       // eslint-disable-next-line max-len
       clientId: '699737945157-cri80q18oge00nqv2pd5q9hnklvfknis.apps.googleusercontent.com',
       discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
@@ -28,18 +30,19 @@ const initClient = async () => {
   });
 };
 
-const login = async () => {
-  await initClient();
-  const googleAuth = gapi.auth2.getAuthInstance();
+const login = () => {
+  initClient();
+  console.log('no login');
+  const googleAuth = gapi.auth2.getAuthInstance().signIn();
   console.log(googleAuth);
-  const googleUser = await googleAuth.signIn();
-  console.log(googleUser);
-  const token = googleUser.getAuthResponse().id_token;
+  // const googleUser = await googleAuth.signIn();
+  // console.log(googleUser);
+  const token = googleAuth.getAuthResponse().id_token;
 
   const credential = auth.GoogleAuthProvider.credential(token);
   console.log('login');
 
-  await firebaseApp.signInAndRetrieveDataWithCredential(credential);
+  firebaseApp.signInAndRetrieveDataWithCredential(credential);
 };
 
 const logout = () => {
