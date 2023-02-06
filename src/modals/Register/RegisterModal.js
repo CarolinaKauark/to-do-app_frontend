@@ -21,9 +21,11 @@ export default function RegisterModal() {
 
   const validateFields = () => {
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    if (!emailRegex.test(email) || !terms) {
+    if (!emailRegex.test(email)) {
       setError(true);
     } else if (password !== confirmPassword) {
+      setError(true);
+    } else if (!terms) {
       setError(true);
     } else setError(false);
   };

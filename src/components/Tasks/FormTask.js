@@ -72,7 +72,7 @@ function FormTask({ title, button, funcButton, task }) {
             checked={ isHighPriority }
             onChange={ () => setHighPriority(!isHighPriority) }
           />
-          Hidh Priority?
+          High Priority?
         </label>
 
         {/* <div>

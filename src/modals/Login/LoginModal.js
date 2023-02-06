@@ -77,7 +77,7 @@ export default function LoginModal() {
             checked={ rememberMe }
             onChange={ () => setRememberMe(!rememberMe) }
           />
-          Remenber Me
+          Remember Me
         </label>
       </form>
       <button
@@ -87,7 +87,7 @@ export default function LoginModal() {
       >
         Login
       </button>
-      {error && <p>Não foi possível realizar o login</p>}
+      {error && <p className="error_msg">Unable to login</p>}
       <div className="span_modal">
         <p>Don´t have an account?</p>
         <div
